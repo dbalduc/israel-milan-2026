@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Israel + Milan">
+<meta name="theme-color" content="#16324F">
+<meta name="robots" content="noindex,nofollow">
+<title>Israel + Milan 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=DM+Sans:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#16324F;        /* Mediterranean night */
+    --sea:#1F6F8B;        /* Tel Aviv water */
+    --brick:#B5452E;      /* Milanese terracotta */
+    --gold:#D9A441;       /* Jerusalem stone at dusk */
+    --olive:#6B7A3A;
+    --paper:#FAF6EE;      /* limestone */
+    --paper2:#F0E9DA;
+    --mist:#6C7885;
+    --line:#E3DAC8;
+    --ok:#1E9E6A;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--paper);color:var(--ink);font-family:"DM Sans",system-ui,sans-serif;line-height:1.6}
+  a{color:var(--sea);text-decoration:none}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 18px}
+  .serif{font-family:"Cormorant Garamond",Georgia,serif}
+
+  /* ===== HERO ===== */
+  .hero{position:relative;color:#fff;overflow:hidden;
+    background:
+      radial-gradient(120% 90% at 85% 0%,rgba(217,164,65,.55) 0%,rgba(217,164,65,0) 55%),
+      radial-gradient(90% 80% at 0% 100%,rgba(181,69,46,.55) 0%,rgba(181,69,46,0) 60%),
+      linear-gradient(160deg,#1F6F8B 0%,#16324F 62%,#0F2238 100%)}
+  .hero .wrap{position:relative;padding-top:64px;padding-bottom:40px}
+  .hero .eyebrow{font-weight:700;letter-spacing:.3em;text-transform:uppercase;font-size:.72rem;opacity:.9}
+  .hero h1{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;font-size:clamp(2.9rem,9.5vw,6.2rem);line-height:.95;margin:10px 0 8px;text-wrap:balance}
+  .hero h1 em{font-style:italic;font-weight:500;color:#F3D9A0}
+  .hero .sub{font-family:"Cormorant Garamond",Georgia,serif;font-size:clamp(1.1rem,3.4vw,1.6rem);opacity:.94}
+  .hero .dates{margin-top:12px;font-size:1rem;font-weight:500;opacity:.95}
+  .hero .stat-row{display:flex;gap:26px;margin-top:24px;flex-wrap:wrap}
+  .hero .stat b{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;font-size:2rem;display:block;line-height:1}
+  .hero .stat span{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;opacity:.85}
+
+  /* route strip */
+  .route{margin-top:34px;padding-top:22px;border-top:1px solid rgba(255,255,255,.22)}
+  .route ol{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);position:relative}
+  .route ol::before{content:"";position:absolute;left:6px;right:6px;top:6px;border-top:2px dashed rgba(255,255,255,.45)}
+  .route li{position:relative;padding-top:22px;font-size:.78rem;line-height:1.35}
+  .route li::before{content:"";position:absolute;left:0;top:0;width:13px;height:13px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 4px rgba(217,164,65,.25)}
+  .route li:last-child{text-align:right}
+  .route li:last-child::before{left:auto;right:0}
+  .route li b{display:block;font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;font-size:1.25rem;letter-spacing:.02em}
+  .route li span{opacity:.85}
+
+  /* ===== NAV ===== */
+  nav{position:sticky;top:0;z-index:50;background:rgba(250,246,238,.93);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;gap:4px;overflow-x:auto;padding:9px 18px;scrollbar-width:none}
+  nav .wrap::-webkit-scrollbar{display:none}
+  nav a{flex:0 0 auto;font-size:.8rem;font-weight:700;color:var(--mist);padding:6px 11px;border-radius:99px;white-space:nowrap}
+  nav a:hover,nav a:focus-visible{color:var(--ink);background:var(--paper2)}
+  nav a.key{color:var(--brick)}
+
+  /* ===== SECTION TITLES ===== */
+  .band{padding:46px 0 8px}
+  .band h2{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;font-size:2.1rem;display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+  .band h2 .alt{font-size:1rem;color:var(--mist);font-family:"DM Sans",sans-serif;font-weight:500;font-style:italic}
+  .band p.lead{color:var(--mist);margin-top:6px;max-width:62ch}
+
+  /* ===== LOGISTICS DASHBOARD ===== */
+  .dash{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:14px;margin-top:18px}
+  .card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:0 4px 18px rgba(22,50,79,.05)}
+  .card.wide{grid-column:1/-1}
+  .card .h{display:flex;align-items:center;gap:8px;font-weight:900;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mist);margin-bottom:12px}
+  .card .h .ico{width:26px;height:26px;border-radius:8px;display:grid;place-items:center;color:#fff;font-size:.9rem}
+  .legs{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:0 26px}
+  .leg{padding:10px 0;border-bottom:1px dashed var(--line)}
+  .leg .rt{display:flex;justify-content:space-between;align-items:baseline;gap:10px;font-weight:700}
+  .leg .rt .code{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;font-size:1.15rem}
+  .leg .rt .conf{font-size:.72rem;color:var(--ok);font-weight:700;letter-spacing:.05em;white-space:nowrap}
+  .leg .who{font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--brick);margin-top:2px}
+  .leg .det{font-size:.84rem;color:var(--mist);margin-top:2px}
+  .pill{display:inline-block;font-size:.66rem;font-weight:800;padding:2px 8px;border-radius:99px;letter-spacing:.04em;text-transform:uppercase;white-space:nowrap}
+  .pill.booked{background:#E2F6EC;color:var(--ok)}
+  .pill.todo{background:#FBE7D6;color:#A85A14}
+
+  .status-row{display:flex;align-items:center;gap:8px;padding:7px 0;font-size:.88rem;border-bottom:1px dashed var(--line)}
+  .status-row:last-child{border-bottom:0}
+  .status-row .nm{flex:1}
+  .note{font-size:.76rem;color:var(--mist);margin-top:8px}
+
+  /* ===== DAYS ===== */
+  .day{padding:26px 0 6px;border-top:2px solid var(--ink);margin-top:26px}
+  .day-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+  .day-num{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;font-size:2.8rem;color:var(--brick);line-height:.8;min-width:1.2em}
+  .day-meta .date{font-weight:900;letter-spacing:.04em}
+  .day-meta .title{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;font-size:1.6rem;margin-top:-2px}
+  .day-meta .where{font-size:.78rem;color:var(--mist);text-transform:uppercase;letter-spacing:.1em;font-weight:700}
+  .day-badge{margin-left:auto;align-self:center}
+  .vibe{font-family:"Cormorant Garamond",Georgia,serif;font-style:italic;font-size:1.25rem;color:var(--sea);margin:12px 0 8px}
+  .day p.body{margin-bottom:12px;max-width:68ch}
+
+  .stops{list-style:none;margin:8px 0 0;border-left:2px solid var(--line)}
+  .stops li{position:relative;padding:8px 0 8px 22px}
+  .stops li::before{content:"";position:absolute;left:-6px;top:15px;width:10px;height:10px;border-radius:50%;background:var(--gold);border:2px solid var(--paper)}
+  .stops .t{font-weight:700}
+  .stops .t a.stoplink{color:var(--sea);border-bottom:1.5px solid rgba(31,111,139,.3)}
+  .stops .t a.stoplink:hover{border-bottom-color:var(--sea)}
+  .stops .time{font-size:.72rem;color:var(--mist);font-weight:700;letter-spacing:.04em}
+  .stops .n{font-size:.86rem;color:var(--mist)}
+
+  .links{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+  .links a{font-size:.76rem;font-weight:700;background:#fff;border:1px solid var(--line);padding:6px 11px;border-radius:99px}
+  .links a:hover{border-color:var(--sea)}
+
+  .dchk{display:inline-flex;align-items:center;gap:8px;margin-top:14px;cursor:pointer;font:inherit;font-size:.8rem;font-weight:700;color:var(--mist);background:none;border:0;padding:4px 0}
+  .dchk .b{width:20px;height:20px;border:2px solid var(--mist);border-radius:6px;display:grid;place-items:center;color:transparent;font-size:.7rem}
+  .day.done .dchk .b{background:var(--ok);border-color:var(--ok);color:#fff}
+  .day.done .dchk{color:var(--ok)}
+  .dchk:focus-visible{outline:2px solid var(--sea);outline-offset:3px;border-radius:6px}
+
+  .keyday{background:var(--brick);color:#fff;font-weight:900;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;padding:5px 11px;border-radius:99px;white-space:nowrap}
+  .keyday.fly{background:var(--sea)}
+  .keyday.fest{background:var(--gold);color:var(--ink)}
+  .keyday.open{background:var(--paper2);color:var(--mist)}
+
+  footer{background:var(--ink);color:#fff;margin-top:50px;padding:36px 0;text-align:center}
+  footer .big{font-family:"Cormorant Garamond",Georgia,serif;font-style:italic;font-size:1.6rem;opacity:.95}
+  footer p{font-size:.82rem;opacity:.7;margin-top:8px}
+
+  @media(max-width:560px){
+    .day-num{font-size:2.2rem}
+    .route li{font-size:.7rem}
+    .route li b{font-size:1.05rem}
+    .hero .wrap{padding-top:48px}
+  }
+  @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">11 days · Tel Aviv · Milan</div>
+    <h1>Israel <em>&amp;</em> Milan</h1>
+    <div class="sub">Jason's wedding, then Christmas in Italy</div>
+    <div class="dates">December 20 – 30, 2026 · David, Jenifer, Jacqueline &amp; Sage</div>
+    <div class="stat-row">
+      <div class="stat"><b>11</b><span>Days</span></div>
+      <div class="stat"><b>2</b><span>Countries</span></div>
+      <div class="stat"><b>4</b><span>Travelers</span></div>
+      <div class="stat"><b>1</b><span>Wedding</span></div>
+    </div>
+    <div class="route" aria-label="Route">
+      <ol>
+        <li><b>SFO</b><span>Dec 20 · depart</span></li>
+        <li><b>Tel Aviv</b><span>Dec 21 – 24</span></li>
+        <li><b>Milan</b><span>Dec 24 – 30</span></li>
+        <li><b>SFO</b><span>Dec 30 · home</span></li>
+      </ol>
+    </div>
+  </div>
+</header>
+
+<!-- NAV -->
+<nav aria-label="Jump to"><div class="wrap">
+  <a href="#logistics" class="key">Logistics</a>
+  <a href="#d1">Dec 20</a><a href="#d2">Dec 21</a><a href="#d3">Dec 22–23</a>
+  <a href="#d4">Dec 24</a><a href="#d5">Dec 25</a><a href="#d6">Dec 26</a>
+  <a href="#d7">Dec 27–29</a><a href="#d8">Dec 30</a>
+</div></nav>
+
+<main class="wrap">
+
+<!-- ===== LOGISTICS ===== -->
+<div id="logistics" class="band">
+  <h2>Logistics <span class="alt">logistica</span></h2>
+  <p class="lead">What's booked and what's still open, in one place. All times are local to the airport. Tap a day below to check it off as we go.</p>
+</div>
+
+<div class="dash">
+  <!-- FLIGHTS -->
+  <div class="card wide">
+    <div class="h"><span class="ico" style="background:var(--sea)">✈</span> Flights</div>
+    <div class="legs">
+      <div class="leg">
+        <div class="rt"><span class="code">EL AL LY48 · SFO → Tel Aviv</span><span class="conf">booked ✓</span></div>
+        <div class="who">David · Jenifer · Jacqueline</div>
+        <div class="det">Sun Dec 20, 2:00 PM → Mon Dec 21, 1:40 PM · nonstop, 13h 40m · SFO International Terminal → Ben Gurion T3</div>
+        <div class="det">1 checked bag (23 kg) + 1 carry-on (8 kg) each · seats not picked yet</div>
+      </div>
+      <div class="leg">
+        <div class="rt"><span class="code">EL AL LY387 · Tel Aviv → Milan</span><span class="conf">booked ✓</span></div>
+        <div class="who">David · Jenifer · Jacqueline</div>
+        <div class="det">Thu Dec 24, 5:50 PM → 9:10 PM · nonstop, 4h 20m · Ben Gurion T3 → Malpensa T1</div>
+        <div class="det">1 checked bag each · seats 42A / 42B / 42C</div>
+      </div>
+      <div class="leg">
+        <div class="rt"><span class="code">Swiss LX39 + LX1622 · SFO → Milan</span><span class="conf">booked ✓</span></div>
+        <div class="who">Sage</div>
+        <div class="det">Wed Dec 23, 7:25 PM → Zürich Thu Dec 24, 3:30 PM (seat 47K) · 2h 05m layover · Zürich 5:35 PM → Malpensa 6:30 PM (seat 16F)</div>
+        <div class="det">Carry-on only · ticket can't be changed</div>
+      </div>
+      <div class="leg">
+        <div class="rt"><span class="code">Lufthansa LH5637 + LH9408 · Milan → SFO</span><span class="conf">booked ✓</span></div>
+        <div class="who">All four</div>
+        <div class="det">Wed Dec 30, Malpensa 2:40 PM → Frankfurt 4:00 PM (row 10: A / C / D / F) · 1h 25m layover · Frankfurt 5:25 PM → SFO 8:10 PM</div>
+        <div class="det">Second leg is flown by United · seats not picked yet · carry-on included, checked bags to confirm</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WEDDING -->
+  <div class="card">
+    <div class="h"><span class="ico" style="background:var(--brick)">♥</span> Jason's wedding</div>
+    <div class="status-row"><span class="nm">Israel plans, start to finish</span><span class="pill booked">Jason ✓</span></div>
+    <div class="status-row"><span class="nm">Where we stay, Dec 21 – 24</span><span class="pill booked">Jason ✓</span></div>
+    <div class="status-row"><span class="nm">Getting around in Israel</span><span class="pill booked">Jason ✓</span></div>
+    <p class="note">Jason has the Israel leg covered end to end. The wedding schedule will land here once he shares it.</p>
+  </div>
+
+  <!-- STAYS -->
+  <div class="card">
+    <div class="h"><span class="ico" style="background:var(--gold)">🛏</span> Where we're staying</div>
+    <div class="status-row"><span class="nm">Israel · Dec 21 – 24 (3 nights)</span><span class="pill booked">Jason ✓</span></div>
+    <div class="status-row"><span class="nm">Milan · Dec 24 – 30 (6 nights)</span><span class="pill todo">to book</span></div>
+    <p class="note">Milan check-in will be late on Christmas Eve, so the place needs late arrival.</p>
+  </div>
+
+  <!-- GETTING AROUND -->
+  <div class="card">
+    <div class="h"><span class="ico" style="background:var(--olive)">🚆</span> Getting around</div>
+    <div class="status-row"><span class="nm">Israel · Dec 21 – 24</span><span class="pill booked">Jason ✓</span></div>
+    <div class="status-row"><span class="nm">Sage's Malpensa arrival · Dec 24, 6:30 PM</span><span class="pill todo">to plan</span></div>
+    <div class="status-row"><span class="nm">Malpensa → Milan · Dec 24, after 9:10 PM</span><span class="pill todo">to plan</span></div>
+    <div class="status-row"><span class="nm">Lake Como day trip</span><span class="pill todo">idea</span></div>
+  </div>
+
+  <!-- TO DO -->
+  <div class="card">
+    <div class="h"><span class="ico" style="background:var(--mist)">📋</span> Before we go</div>
+    <div class="status-row"><span class="nm">Pick seats on LY48 (free on this fare)</span><span class="pill todo">to do</span></div>
+    <div class="status-row"><span class="nm">Pick four seats together, Frankfurt → SFO</span><span class="pill todo">to do</span></div>
+    <div class="status-row"><span class="nm">Confirm checked bags for the flight home</span><span class="pill todo">to do</span></div>
+    <div class="status-row"><span class="nm">Check ticket names match passports</span><span class="pill todo">to do</span></div>
+    <div class="status-row"><span class="nm">Passports valid 6+ months</span><span class="pill todo">check</span></div>
+    <div class="status-row"><span class="nm">Entry authorizations for Israel and Europe</span><span class="pill todo">check</span></div>
+  </div>
+</div>
+
+<!-- ===== DAY BY DAY ===== -->
+<div class="band"><h2>Day by day <span class="alt">giorno per giorno</span></h2></div>
+
+<div id="days"></div>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="big">Buon viaggio · נסיעה טובה</div>
+    <p>Israel &amp; Milan · December 20 – 30, 2026 · tap days to check them off</p>
+  </div>
+</footer>
+
+<script>
+const days=[
+ {id:'d1',n:'20',date:'Sun · Dec 20',where:'San Francisco → Tel Aviv',title:'Wheels up',badge:['fly','✈ Travel day'],
+  vibe:'One long flight, straight there.',
+  body:"David, Jenifer and Jacqueline fly nonstop to Tel Aviv. It's a 13h 40m overnight, so the day mostly disappears into the flight. Sage stays home for a few more days and meets everyone in Milan.",
+  stops:[['11:00 AM','SFO International Terminal','EL AL runs its own security interview at check-in, so arrive a full three hours early','https://www.flysfo.com/'],['2:00 PM','EL AL LY48 departs','1 checked bag + 1 carry-on each','https://www.elal.com/']]},
+
+ {id:'d2',n:'21',date:'Mon · Dec 21',where:'Tel Aviv',title:'Land in Israel',
+  vibe:'Ten hours ahead of California. Take it easy.',
+  body:"Land at Ben Gurion in the early afternoon. From here Jason has the plan: where we stay, how we get around and what happens when. Try to stay awake until a normal bedtime.",
+  stops:[['1:40 PM','Land Ben Gurion, Terminal 3','Passport control and bags','https://www.google.com/maps/search/Ben+Gurion+Airport+Terminal+3'],['After','Over to Jason','He has the Israel leg covered end to end']]},
+
+ {id:'d3',n:'22',date:'Tue Dec 22 – Wed Dec 23',where:'Israel',title:"Jason's wedding + open time",badge:['key','♥ The wedding'],
+  vibe:'The reason for the trip.',
+  body:"Two full days in Israel, all in Jason's hands, with the wedding in this window. His schedule goes here once he shares it. Back home, Sage flies out Wednesday evening.",
+  stops:[['Per Jason','Jason’s wedding','Schedule to come from Jason'],['Wed 7:25 PM (California)','Sage departs SFO','Swiss LX39 overnight to Zürich · carry-on only','https://www.swiss.com/']]},
+
+ {id:'d4',n:'24',date:'Thu · Dec 24',where:'Tel Aviv → Milan',title:'Christmas Eve, everyone in Milan',badge:['fly','✈ Travel day'],
+  vibe:'Two routes, one airport, same night.',
+  body:"Sage connects through Zürich and lands at Malpensa first. The other three leave Tel Aviv in the early evening and land about two and a half hours later. Then into the city together, late, on Christmas Eve.",
+  stops:[['Morning','Last morning in Israel','Pack up and check out'],['3:30 PM','Sage lands Zürich','2h 05m layover, then LX1622 at 5:35 PM'],['5:50 PM','EL AL LY387 departs Tel Aviv','Ben Gurion T3 · seats 42A / 42B / 42C','https://www.elal.com/'],['6:30 PM','Sage lands Malpensa','About 2h 40m before the others','https://www.milanomalpensa-airport.com/en'],['9:10 PM','The rest land Malpensa, Terminal 1','Bags, then into Milan — check late train times or pre-book a car','https://www.malpensaexpress.it/en/']]},
+
+ {id:'d5',n:'25',date:'Fri · Dec 25',where:'Milan',title:'Christmas Day',badge:['fest','★ Buon Natale'],
+  vibe:'Slow morning. Long lunch.',
+  body:"Christmas Day in Italy is quiet: most museums and shops are closed and many restaurants only take bookings. Plan on a walk past the Duomo and through the Galleria, and reserve Christmas lunch ahead.",
+  stops:[['Morning','Piazza del Duomo','The cathedral square and the Christmas tree','https://www.google.com/maps/search/Piazza+del+Duomo+Milano'],['Midday','Christmas lunch','To reserve ahead'],['Afternoon','Galleria Vittorio Emanuele II','Lights and a passeggiata','https://www.google.com/maps/search/Galleria+Vittorio+Emanuele+II']]},
+
+ {id:'d6',n:'26',date:'Sat · Dec 26',where:'Milan',title:'Santo Stefano',badge:['open','Open day'],
+  vibe:'Still a holiday. The city wakes back up.',
+  body:"December 26 is a public holiday in Italy too. Some sights reopen with holiday hours, so check before heading anywhere specific. Nothing planned yet.",
+  stops:[['All day','Open','Ideas welcome']]},
+
+ {id:'d7',n:'27',date:'Sun Dec 27 – Tue Dec 29',where:'Milan + Lake Como',title:'Three open days',badge:['open','Open days'],
+  vibe:'The part we get to make up.',
+  body:"Three full days with nothing booked. Jenifer's idea so far is a winter day trip to Lake Como, about an hour north by train. Anything with timed tickets needs booking well ahead for Christmas week.",
+  stops:[['One day','Lake Como','Day trip idea — train from Milan to Como or Varenna','https://www.google.com/maps/search/Lake+Como'],['Two days','Milan','To plan'],['Tue evening','Last dinner','Pack for the flight home']]},
+
+ {id:'d8',n:'30',date:'Wed · Dec 30',where:'Milan → San Francisco',title:'Fly home',badge:['fly','✈ Travel day'],
+  vibe:'All four, same flights, home by bedtime.',
+  body:"Everyone flies home together through Frankfurt. The layover is short and includes passport control, so move straight to the next gate. You gain nine hours flying west and land the same evening.",
+  stops:[['11:30 AM','Leave for Malpensa','Allow a real buffer for holiday traffic','https://www.milanomalpensa-airport.com/en'],['2:40 PM','Lufthansa LH5637 to Frankfurt','Row 10','https://www.lufthansa.com/'],['4:00 PM','Land Frankfurt','1h 25m to connect — passport control on the way'],['5:25 PM','LH9408 to San Francisco','Flown by United','https://www.united.com/'],['8:10 PM','Land SFO','Home']]},
+];
+
+const root=document.getElementById('days');
+const DK='israel-milan-2026-days-v1';
+let dsaved={};
+try{dsaved=JSON.parse(localStorage.getItem(DK))||{}}catch(e){}
+
+days.forEach(d=>{
+  const el=document.createElement('section');
+  el.className='day'+(dsaved[d.id]?' done':'');
+  el.id=d.id;
+  const badge=d.badge?`<span class="day-badge"><span class="keyday ${d.badge[0]}">${d.badge[1]}</span></span>`:'';
+  const stops=d.stops.map(s=>{
+    const title=s[3]?`<a class="stoplink" href="${s[3]}" target="_blank" rel="noopener">${s[1]} ↗</a>`:s[1];
+    return `<li><span class="time">${s[0]}</span><div class="t">${title}</div><div class="n">${s[2]}</div></li>`;
+  }).join('');
+  el.innerHTML=`
+    <div class="day-head">
+      <div class="day-num">${d.n}</div>
+      <div class="day-meta">
+        <div class="where">${d.where}</div>
+        <div class="date">${d.date}</div>
+        <div class="title">${d.title}</div>
+      </div>
+      ${badge}
+    </div>
+    <div class="vibe">${d.vibe}</div>
+    <p class="body">${d.body}</p>
+    <ul class="stops">${stops}</ul>
+    <button type="button" class="dchk" aria-pressed="${dsaved[d.id]?'true':'false'}"><span class="b">✓</span> <span>Done</span></button>`;
+  const btn=el.querySelector('.dchk');
+  btn.addEventListener('click',()=>{
+    el.classList.toggle('done');
+    const on=el.classList.contains('done');
+    dsaved[d.id]=on;
+    btn.setAttribute('aria-pressed',on?'true':'false');
+    try{localStorage.setItem(DK,JSON.stringify(dsaved))}catch(e){}
+  });
+  root.appendChild(el);
+});
+</script>
+</body>
+</html>
